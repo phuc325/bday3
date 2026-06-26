@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ff6fae">
+    <title>Hapi bớt đây dợ iu 💗</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div id="floating-hearts" aria-hidden="true"></div>
+
+    <main class="app-shell">
+        <section class="screen active" data-screen="intro">
+            <div class="card intro-card">
+                <div class="emoji-burst">🎉🎂💗✨</div>
+                <p class="eyebrow">mụt món quà nhỏ từ ank</p>
+                <h1>hapi bớt đây dợ iu!! 🎂💗</h1>
+                <p class="soft-text">eiu sẵn sàng chưa nàooo 🥺👉🏻👈🏻</p>
+                <button class="primary-button pulse" data-next="letter">
+                    OMG! 😳💥
+                </button>
+            </div>
+        </section>
+
+        <section class="screen" data-screen="letter">
+            <div class="card letter-card">
+                <div class="emoji-burst">😲💞</div>
+                <h2>wow wow wow!!!</h2>
+
+                <div class="letter-text">
+                    <p>vậy là eiu 19 tủi gou 🥳🎂<br>
+                    lớn hơn ank 👵🏻✨<br>
+                    nhưng đc 4 tháng thou! 😌🤏🏻</p>
+
+                    <p>hôm nay cũn là ngày kỉ niệm<br>
+                    <strong>💞 900 ngày (+2 tiếng) 💞</strong><br>
+                    mìn nàm lover cụa nhau đók 💗💗💗</p>
+
+                    <p>eim bíc k!!! 😤👉🏻👈🏻</p>
+
+                    <p>nhưng bùn mụt cái là ank lại cách eiu tới<br>
+                    <strong>📍213km😭 </strong></p>
+
+                    <p>k gặp trực tiếp eiu 😭<br>
+                    và dui dẻ dới eiu đc T.T 🥺🌧️</p>
+
+                    <p>am sâu so gy!!! 😭🙏🏻💔</p>
+
+                    <p>nhưng ank hứa 🤞🏻💗<br>
+                    ank sẽ đến pù cko eiu vào ngày<br>
+                    <strong class="special-date">✨ 7/7 ✨</strong></p>
+
+                    <p>nkoooooo </p>
+                </div>
+
+                <button class="primary-button" id="accept-love">
+                    uci ck iu 🥺💗
+                </button>
+                <p class="tiny-note">việc bấm nút này bạn chấp nhận nàm dợ bp forever 👰🏻‍♀️💍</p>
+            </div>
+        </section>
+
+        <section class="screen" data-screen="time">
+            <div class="card selection-card">
+                <div class="emoji-burst">📅✨💗</div>
+                <h2>7/7 eiu gảnh bủi nàooooo? 🥺💗</h2>
+                <p class="soft-text">có thể chọn nhìu bủi nkoa 😤👉🏻👈🏻</p>
+
+                <div class="choice-grid time-grid" id="time-options">
+                    <button class="choice-button" data-value="Sáng">🌅 Sáng</button>
+                    <button class="choice-button" data-value="Trưa">☀️ Trưa</button>
+                    <button class="choice-button" data-value="Chiều">🌤️ Chiều</button>
+                    <button class="choice-button" data-value="Tối">🌙 Tối</button>
+                </div>
+
+                <p class="validation-message" id="time-error" aria-live="polite"></p>
+
+                <button class="primary-button" id="time-continue">
+                    chọn xong gouuu 💞
+                </button>
+            </div>
+        </section>
+
+        <section class="screen" data-screen="food">
+            <div class="card selection-card food-card">
+                <div class="emoji-burst">🍽️💗😋</div>
+                <h2>eiu mún đy ăng món dì nàooo? 🥺👉🏻👈🏻</h2>
+                <p class="soft-text">cọn món eiu thíc nhứttt nkoaaa 😋✨</p>
+
+                <div class="choice-grid food-grid" id="food-options">
+                    <button class="choice-button" data-value="Mì cay">🍜 Mì cay</button>
+                    <button class="choice-button" data-value="Gà rán">🍗 Gà rán</button>
+                    <button class="choice-button" data-value="Pizza">🍕 Pizza</button>
+                    <button class="choice-button" data-value="Lẩu">🍲 Lẩu</button>
+                    <button class="choice-button" data-value="Mì Ý">🍝 Mì Ý</button>
+                    <button class="choice-button" data-value="Bún đậu">🥘 Bún đậu</button>
+                    <button class="choice-button" data-value="Dimsum">🥟 Dimsum</button>
+                    <button class="choice-button" data-value="Đồ nướng">🥩 Đồ nướng</button>
+                    <button class="choice-button" data-value="Cafe + bánh ngọt">🍰 Cafe + bánh ngọt</button>
+                    <button class="choice-button" data-value="Kem / chè">🍦 Kem / chè</button>
+                    <button class="choice-button" data-value="Ăn vặt linh tinh">🌮 Ăn vặt linh tinh</button>
+                    <button class="choice-button special-choice" data-value="Để ank chọn" data-exclusive="true">
+                        😌💗 Để ank chọn
+                    </button>
+                    <button class="choice-button" id="other-food-button" data-value="Khác">
+                        ✍🏻 Khác
+                    </button>
+                </div>
+
+                <div class="custom-food-wrap" id="custom-food-wrap" hidden>
+                    <label for="custom-food">eiu mún ăng món dì thì ghi dô đyyy 😋</label>
+                    <input id="custom-food" maxlength="120" placeholder="ghi món eiu thíc ở đây nkoa...">
+                </div>
+
+                <button class="secret-food" id="secret-food" type="button" aria-label="Bánh tráng">
+                    bánh tráng
+                </button>
+
+                <p class="validation-message" id="food-error" aria-live="polite"></p>
+
+                <button class="primary-button" id="food-continue">
+                    chốt món nàyyy 😋💞
+                </button>
+
+                <p class="tiny-note">nếu eiu hong chọn món thì ank sẽ tự chọn món ank thíc đó nkoa 😤🍽️</p>
+            </div>
+        </section>
+
+        <section class="screen" data-screen="ticket">
+            <div class="card ticket-card">
+                <div class="ticket-ribbon">🎟️ vé hẹn hò cụa dợ iu 🎟️</div>
+                <div class="ticket-body">
+                    <div class="ticket-row">
+                        <span>📅 ngày đy chơi</span>
+                        <strong>7/7 ✨</strong>
+                    </div>
+                    <div class="ticket-row">
+                        <span>⏰ bủi eiu gảnh</span>
+                        <strong id="ticket-times">chưa chọn</strong>
+                    </div>
+                    <div class="ticket-row">
+                        <span>🍽️ món eiu mún ăng</span>
+                        <strong id="ticket-foods">chưa chọn</strong>
+                    </div>
+                    <div class="ticket-row">
+                        <span>💌 người đy cùng</span>
+                        <strong>ank iu cụa eiu 😌🫶🏻</strong>
+                    </div>
+                </div>
+
+                <button class="primary-button pulse" id="final-submit">
+                    chốt kèooooo 💞
+                </button>
+                <button class="secondary-button" id="edit-choices">
+                    chỉnh lại xíu ✍🏻
+                </button>
+                <p class="tiny-note">việc bấm nút này đồng nghĩa eiu hong đc bùng kèo ank dou đó 😤👉🏻👈🏻</p>
+                <p class="validation-message" id="submit-error" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="screen" data-screen="final">
+            <div class="card final-card">
+                <div class="emoji-burst final-burst">🎉💗🎂💍✨</div>
+                <h2>chốt kèo thành công gouuu!!! 💗🎉</h2>
+
+                <div class="final-letter">
+                    <p>ank đã nhận đc lịch hẹn cụa eiu gou đó 😌✨</p>
+
+                    <p>từ giờ tới 7/7, eiu chỉ cần chờ ank thui nko 🥺<br>
+                    gòi ank sẽ xún sg dới eiu, cko eiu mụt ngày thật dui dẻ, ank hứa sẽ cko eiu nhìu nhìu kít kít </p>
+
+                    <p>tuy là sinh nhựt của eiu nhưng ank nghĩ ank vẫn đc quà đók</p>
+
+                    <p>tại dì đy chơi dới eiu là mụt món quà gấc lớn đối dới ankkkk </p>
+
+                    <p>cúi cùn, ank mún chúc dợ iu cụa ank lúc nào cũn dui dẻ, ngày càng chink địp, gặp thật nhìu may mắn và đạt đc tất cả đìu eiu mong mún nkooo ✨</p>
+
+                    <p>nhớ ăng ún đầy đủ, ngủ nghỉ heo thì đók!! 😤<br>
+                    ank bíc eiu học gấc áp lực, nhmo dù có bận tới đâu cũn nhớ qtum bản thân nhìu đók!!!</p>
+
+                    <p>lúc nào eiu mệc, bùn hay k ổn, thì nhớ là ank vẫn lun bên cạnh eiu nkoooo, lun sẵn sàng nghe eiu kể và iu thưn dợ iu cụa ank thật nhìuuuu 💗</p>
+
+                    <p>cảm ơn eiu vì đã đồng hànk dới ank suốt 900 ngày (+2 tiếng) qua<br>
+                    và ank mong sau này mìn sẽ còn cùn nhau thêm thật nhìu giây, nhìu phút, nhìu giờ, nhìu ngày, nhìu tháng, nhìu năm nữa nko hỏn niii 🥺💍</p>
+
+                    <p class="final-wish">hapi bớt đây dợ iu 🎂💞<br>
+                    ank thíc iu thưn eiu siu nhìuuuuuuuuuu 💗💗💗</p>
+                </div>
+
+                <div class="mini-ticket" id="mini-ticket"></div>
+                <button class="secondary-button" id="copy-ticket">sao chép vé gửi ank 📋💗</button>
+                <p class="copy-status" id="copy-status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kết quả chốt kèo 💗</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --pink: #ff6fae;
+            --purple: #8b5cf6;
+            --text: #4a2440;
+            --muted: #8b6c82;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 28px 16px;
+            color: var(--text);
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background:
+                radial-gradient(circle at top left, #ffe5f1, transparent 34%),
+                radial-gradient(circle at bottom right, #eee4ff, transparent 36%),
+                #fff8fb;
+        }
+
+        main {
+            width: min(100%, 760px);
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: clamp(30px, 7vw, 46px);
+        }
+
+        .subtitle {
+            margin: 0 0 24px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .empty,
+        .result-card {
+            margin-bottom: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 111, 174, 0.24);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 18px 44px rgba(117, 70, 101, 0.12);
+        }
+
+        .result-card h2 {
+            margin: 0 0 14px;
+            color: var(--pink);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 135px 1fr;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(139, 108, 130, 0.2);
+        }
+
+        .row:last-child { border-bottom: 0; }
+        .label { color: var(--muted); font-weight: 700; }
+        .value { font-weight: 800; overflow-wrap: anywhere; }
+
+        @media (max-width: 520px) {
+            .row { grid-template-columns: 1fr; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Kết quả chốt kèo 💗</h1>
+        <p class="subtitle">Trang bí mật cho ank xem dợ iu đã chọn gì. Đúng là yêu đương thời số hóa, lãng mạn nhưng vẫn có dữ liệu.</p>
+
+        {% if not records %}
+            <div class="empty">Chưa có ai chốt kèo nkoa 🥲</div>
+        {% endif %}
+
+        {% for record in records|reverse %}
+            <article class="result-card">
+                <h2>🎟️ Vé ngày {{ record.date }}</h2>
+                <div class="row">
+                    <div class="label">⏰ Buổi</div>
+                    <div class="value">{{ record.times|join(", ") }}</div>
+                </div>
+                <div class="row">
+                    <div class="label">🍽️ Món</div>
+                    <div class="value">{{ record.foods|join(", ") }}</div>
+                </div>
+                <div class="row">
+                    <div class="label">🕒 Gửi lúc UTC</div>
+                    <div class="value">{{ record.submitted_at_utc }}</div>
+                </div>
+            </article>
+        {% endfor %}
+    </main>
+</body>
+</html>
